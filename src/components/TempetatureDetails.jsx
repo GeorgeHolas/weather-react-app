@@ -17,6 +17,7 @@ const TempetatureDetails = ({
     temp_min,
     icon, 
   },
+  units,
 }) => {
   const verticalDetails = [
     {
@@ -35,7 +36,7 @@ const TempetatureDetails = ({
         id:3,
         Icon: FiWind,
         title: "Wind",
-        value: `${speed.toFixed()} km/h`,
+        value: `${speed.toFixed()} ${ units === "metric" ? "km/h" : "mph" }`,
     }, 
 ];
 

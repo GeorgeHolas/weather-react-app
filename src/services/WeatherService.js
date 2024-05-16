@@ -14,10 +14,14 @@ const iconUrlFromCode = (icon) =>
   `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
 const formatToLocalTime = (
-    secs, 
-    offset, 
-    format= "cccc, dd LLL yyyy\" | \"Local time: hh:mm a"
-)=> DateTime.fromSeconds(secs + offset, { zone: "utc" }).toFormat(format);
+  secs, 
+  offset, 
+  format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
+) => {
+  return DateTime.fromSeconds(secs, { zone: 'utc' })
+    .plus({ seconds: offset })
+    .toFormat(format);
+};
 
 const formatCurrent = (data) => {
     console.log(data);
@@ -63,7 +67,7 @@ const formatForecastWeather = (secs, offset, data) => {
        temp: f.main.temp,
        title: formatToLocalTime(f.dt, offset, "hh:mm a"),
        icon: iconUrlFromCode(f.weather[0].icon),
-       data: f.dt_txt,
+       date: f.dt_txt,
     }))
     .slice(0, 5)
 
