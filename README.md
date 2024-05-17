@@ -1,6 +1,6 @@
-## React + Vite + Tailwind CSS
+### Weather App
 
-## Weather App
+## React + Vite + Tailwind CSS
 This is a React application that fetches and displays weather data for various locations using the OpenWeatherMap API. The app allows users to search for a specific location or select from a list of pre-defined cities. It displays the current weather conditions, temperature details, and forecasts for the next few hours and days.
 
 ## Technologies Used
