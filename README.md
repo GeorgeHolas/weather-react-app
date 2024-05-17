@@ -32,7 +32,7 @@ This is a React application that fetches and displays weather data for various l
 2. Navigate to the project directory: `cd weather-app`
 3. Install dependencies: `npm install`
 4. Create a `.env` file in the root directory and add your OpenWeatherMap API key: `VITE_OPENWEATHER_API_KEY=your_api_key_here`
- to obtain your api key go to: [text](https://openweathermap.org/)
+ to obtain your api key go to: (https://openweathermap.org/)
 5. Start the development server: `npm run dev`
 
 ## Usage
