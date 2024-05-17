@@ -1,5 +1,7 @@
+// Forecast.jsx
 import React from 'react'
 
+// Forecast component
 const Forecast = ({title, data}) => {
   return (
     <div>
