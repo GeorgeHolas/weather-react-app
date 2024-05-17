@@ -33,15 +33,26 @@ const App = () => {
 
   const formatBackground = () => {
     if (!weather) return "from-cyan-600 to-blue-700";
-      const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-600 to-blue-700";
-      return "from-yellow-600 to-orange-700";
+  
+    const temp = weather.temp;
+  
+    if (units === "metric") {
+      if (temp >= 0 && temp < 10) return "from-gray-300 to-gray-800"; // 0°C to 10°C
+      else if (temp >= 10 && temp < 20) return "from-cyan-600 to-blue-700"; // 10°C to 20°C
+      else if (temp >= 20 && temp < 30) return "from-yellow-700 to-orange-500"; // 20°C to 30°C
+      else if (temp >= 30) return "from-red-700 to-orange-500"; // 30°C and above
+    } else {
+      if (temp >= 32 && temp < 50) return "from-blue-700 to-blue-500"; // 32°F to 50°F
+      else if (temp >= 50 && temp < 68) return "from-green-700 to-green-500"; // 50°F to 68°F
+      else if (temp >= 68 && temp < 86) return "from-yellow-700 to-yellow-500"; // 68°F to 86°F
+      else if (temp >= 86) return "from-red-700 to-red-500"; // 86°F and above
+    }
   };
 
   return (
     <div className="bg-main-bg py-5 bg-cover bg-center h-screen">
     <div className={`mx-auto max-w-screen-lg py-5 px-32 bg-gradient-to-br 
-    shadow-md shadow-black from-cyan-500 to-blue-700 ${ formatBackground() }`}
+    shadow-lg shadow-black from-cyan-500 to-blue-700 ${ formatBackground() }`}
     >
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
